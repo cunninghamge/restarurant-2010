@@ -25,4 +25,17 @@ class Restaurant
       food.upcase
     end
   end
+
+  def announce_closing_time(hours)
+    if opening_time.to_i + hours < 12
+      closing = opening_time.to_i + hours
+      closing = closing.to_s.concat(":00AM")
+    else
+      closing = opening_time.to_i + hours - 12
+      closing = closing.to_s.concat(":00PM")
+    end
+    return "#{@name} will be closing at #{closing}"
+  end
+
+require 'pry'; binding.pry
 end
